@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import Profile from "../component/Profile";
+import Hello from "../component/Hello";
+import Header from "../component/Header";
+import Skill from "../component/Skill";
 
 const MainWarp = styled.div`
   width: 100%;
@@ -7,17 +10,14 @@ const MainWarp = styled.div`
   background-color: #fff;
 `;
 
-const ProfileWrap = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 const MainPage = () => {
   return (
     <>
       <MainWarp>
-        <ProfileWrap>
-          <Profile />
-        </ProfileWrap>
+        <Header />
+        <Hello />
+        <Profile />
+        <Skill />
       </MainWarp>
     </>
   );
