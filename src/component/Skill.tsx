@@ -1,16 +1,25 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import { FC, RefObject, useState } from "react";
 import styled from "styled-components";
+import SkillCard from "./SkillCard";
+import { skillList } from "../data/skillList";
 
 const SkillWrap = styled.section`
   width: 100%;
   justify-content: center;
   display: flex;
+  @media (max-width: 1024px) {
+    justify-content: space-between;
+  }
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
 `;
 
 const SkillInfo = styled.div`
-  width: 86%;
-  height: 1000px;
+  width: 90%;
+  height: 100%;
   gap: 5rem;
+
   .skill-txt {
     border-left: 5px solid #d9d9d9;
     font-size: 3rem;
@@ -20,30 +29,53 @@ const SkillInfo = styled.div`
   }
   .skill-info {
     display: flex;
-    gap: 20rem;
+    flex-direction: row;
+    justify-content: space-around;
   }
   .skill-info-left {
+    width: 20rem;
+    height: auto;
     display: flex;
-    padding-left: 2rem;
+    position: sticky;
+    top: 60px;
     flex-direction: column;
+    align-self: flex-start;
     gap: 5rem;
+    z-index: 90;
     button {
-      width: 20rem;
-      height: 20rem;
-      border-radius: 15rem;
-      font-size: 2rem;
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      font-size: 2.5rem;
       cursor: pointer;
       background: #d9d9d9;
     }
   }
+  .skill-info-right {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5%;
+    @media (max-width: 1024px) {
+      justify-content: end;
+      padding-bottom: 1rem;
+    }
+    @media (max-width: 800px) {
+      padding-bottom: 1rem;
+    }
+  }
 `;
 
-const Skill = () => {
+interface SkillProps {
+  ref: RefObject<HTMLElement>;
+}
+
+const Skill: FC<SkillProps> = () => {
   // 카테고리 관련
-  const [selectedCategory, setSelectedCategory] = useState<number>(1);
-  const handleCategoryChange = (category: number) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("frontend");
+  const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
-    // console.log("눌리니?");
   };
 
   return (
@@ -54,27 +86,33 @@ const Skill = () => {
         </div>
         <div className="skill-info">
           <div className="skill-info-left">
-            <button
-              style={{
-                backgroundColor: selectedCategory === 1 ? "#000" : "#d9d9d9",
-                color: selectedCategory === 1 ? "#fff" : "#000",
-              }}
-              onClick={() => handleCategoryChange(1)}
-            >
-              Frontend
-            </button>
-            <button
-              style={{
-                backgroundColor: selectedCategory === 2 ? "#000" : "#d9d9d9",
-                color: selectedCategory === 2 ? "#fff" : "#000",
-              }}
-              onClick={() => handleCategoryChange(2)}
-            >
-              Collaboration & Tools
-            </button>
+            {skillList.map((categoryItem, index) => (
+              <button
+                key={index}
+                style={{
+                  backgroundColor:
+                    selectedCategory === categoryItem.category
+                      ? "#000"
+                      : "#d9d9d9",
+                  color:
+                    selectedCategory === categoryItem.category
+                      ? "#fff"
+                      : "#000",
+                }}
+                onClick={() => handleCategoryChange(categoryItem.category)}
+              >
+                {categoryItem.category}
+              </button>
+            ))}
           </div>
           <div className="skill-info-right">
-            <div>{selectedCategory}에 대한 내용을 여기에 추가하세요.</div>
+            {skillList
+              .find(
+                (categoryItem) => categoryItem.category === selectedCategory
+              )
+              ?.items.map((skill, index) => (
+                <SkillCard key={index} skill={skill} />
+              ))}
           </div>
         </div>
       </SkillInfo>

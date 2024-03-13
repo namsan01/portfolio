@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, RefObject } from "react";
 import styled from "styled-components";
 
 const HelloWrap = styled.section`
@@ -35,6 +35,7 @@ const HelloInfo = styled.div`
   }
 
   @media (max-width: 1024px) {
+    justify-content: space-between;
     .left {
       padding-left: 1rem;
       h2 {
@@ -57,6 +58,7 @@ const HelloInfo = styled.div`
   }
 
   @media (max-width: 800px) {
+    justify-content: center;
     flex-direction: column;
     .left {
       padding-left: 1rem;
@@ -79,8 +81,11 @@ const HelloInfo = styled.div`
     }
   }
 `;
+interface HelloProps {
+  ref: RefObject<HTMLElement>;
+}
 
-const Hello = () => {
+const Hello: FC<HelloProps> = ({ ref }) => {
   return (
     <HelloWrap>
       <HelloInfo>

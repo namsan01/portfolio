@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, RefObject } from "react";
 import styled from "styled-components";
 
 const HeaderWrap = styled.header`
@@ -17,9 +17,19 @@ const HeaderNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1.5rem;
   border-bottom: 1px solid #d9d9d9;
-
+  .banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    img {
+      width: 2.5rem;
+    }
+    span {
+      font-size: 1.5rem;
+    }
+  }
   .right {
     width: 40%;
     display: flex;
@@ -30,16 +40,33 @@ const HeaderNav = styled.nav`
   }
 `;
 
-const Header = () => {
+interface HeaderProps {
+  helloRef: RefObject<HTMLElement>;
+  profileRef: RefObject<HTMLElement>;
+  skillRef: RefObject<HTMLElement>;
+  projectRef: RefObject<HTMLElement>;
+  handleScrollRef: (ref: RefObject<HTMLElement>) => void;
+}
+
+const Header: FC<HeaderProps> = ({
+  helloRef,
+  profileRef,
+  skillRef,
+  projectRef,
+  handleScrollRef,
+}) => {
   return (
     <HeaderWrap>
       <HeaderNav>
-        <div>나 여기 로고</div>
+        <div className="banner">
+          <img src={process.env.PUBLIC_URL + "/images/banner.svg"} alt="logo" />
+          <span>namsan Portfolio</span>
+        </div>
         <ul className="right">
-          <li>Home</li>
-          <li>Profile</li>
-          <li>Skill</li>
-          <li>Project</li>
+          <li onClick={() => handleScrollRef(helloRef)}>Home</li>
+          <li onClick={() => handleScrollRef(profileRef)}>Profile</li>
+          <li onClick={() => handleScrollRef(skillRef)}>Skill</li>
+          <li onClick={() => handleScrollRef(projectRef)}>Project</li>
         </ul>
       </HeaderNav>
     </HeaderWrap>

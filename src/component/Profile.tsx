@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, RefObject } from "react";
 import styled from "styled-components";
 
 const ProfileWrap = styled.div`
@@ -230,7 +230,11 @@ const ProfileItem = styled.div`
   }
 `;
 
-const Profile = () => {
+interface ProfileProps {
+  ref: RefObject<HTMLElement>;
+}
+
+const Profile: FC<ProfileProps> = () => {
   return (
     <ProfileWrap>
       <ProfileItem>
