@@ -9,21 +9,23 @@ const options = {
     "content-type": "application/json",
     Authorization: `Bearer ${TOKEN}`,
   },
+  body: JSON.stringify({
+    sorts: [
+      {
+        property: "title",
+        direction: "ascending",
+      },
+    ],
+  }),
 };
 
 export const getData = async () => {
-  try {
-    const result = await fetch(
-      `https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
-      options
-    );
-    console.log(result);
+  const res = await fetch(
+    `https://cors-anywhere.herokuapp.com/https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
+    options
+  );
 
-    const data = await result.json();
-    console.log(data);
+  const result = await res.json();
 
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
+  console.log(result);
 };

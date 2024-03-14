@@ -1,4 +1,5 @@
-import React, { FC, RefObject } from "react";
+import { FC, forwardRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 const HelloWrap = styled.section`
@@ -30,7 +31,7 @@ const HelloInfo = styled.div`
   }
   .right {
     img {
-      width: 600px;
+      width: 550px;
     }
   }
 
@@ -81,29 +82,42 @@ const HelloInfo = styled.div`
     }
   }
 `;
+
 interface HelloProps {
-  ref: RefObject<HTMLElement>;
+  ref: any;
 }
 
-const Hello: FC<HelloProps> = ({ ref }) => {
-  return (
-    <HelloWrap>
-      <HelloInfo>
-        <div className="left">
-          <h2>
-            안녕하세요!
-            <br />
-            프론트엔드 개발자 김민수입니다.
-          </h2>
-          <p>꼼꼼히 빈틈을 채워가 꾸준히</p>
-          <p>성장하는 개발자가 되겠습니다</p>
-        </div>
-        <div className="right">
-          <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt="logo" />
-        </div>
-      </HelloInfo>
-    </HelloWrap>
-  );
-};
+const Hello: FC<HelloProps> = forwardRef<HTMLDivElement, HelloProps>(
+  (props, ref) => {
+    
+    const theme = useSelector((state: any) => state.dark);
+
+    return (
+      <HelloWrap ref={ref}>
+        <HelloInfo>
+          <div className="left">
+            <h2>
+              안녕하세요!
+              <br />
+              프론트엔드 개발자 김민수입니다.
+            </h2>
+            <p>꼼꼼히 빈틈을 채워가 꾸준히</p>
+            <p>성장하는 개발자가 되겠습니다</p>
+          </div>
+          <div className="right">
+            <img
+              src={
+                theme === "light"
+                  ? process.env.PUBLIC_URL + "/images/logo.png"
+                  : process.env.PUBLIC_URL + "/images/logo-black.png"
+              }
+              alt=""
+            />
+          </div>
+        </HelloInfo>
+      </HelloWrap>
+    );
+  }
+);
 
 export default Hello;
