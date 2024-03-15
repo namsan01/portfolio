@@ -105,19 +105,16 @@ const ModalContent = styled.div`
   width: 100%;
   padding: 20px;
 
-  button {
+  li {
     width: 100%;
     height: 80px;
     padding: 20px;
     text-align: left;
+    font-size: 2rem;
     background: transparent;
     border: none;
     color: #d9d9d9;
-  }
-  button:hover {
-    background: #444;
-    opacity: 50;
-    border-radius: 5px;
+    cursor: pointer;
   }
 `;
 
@@ -126,6 +123,7 @@ interface HeaderProps {
   profileRef: RefObject<HTMLElement>;
   skillRef: RefObject<HTMLElement>;
   projectRef: RefObject<HTMLElement>;
+  contactRef: RefObject<HTMLElement>;
   handleScrollRef: (ref: RefObject<HTMLElement>) => void;
 }
 
@@ -134,6 +132,7 @@ const Header: FC<HeaderProps> = ({
   profileRef,
   skillRef,
   projectRef,
+  contactRef,
   handleScrollRef,
 }) => {
   const darkMode = useSelector((state: RootState) => state.dark);
@@ -155,10 +154,10 @@ const Header: FC<HeaderProps> = ({
             <span>namsan Portfolio</span>
           </div>
           <HeaderRight>
-            <li onClick={() => handleScrollRef(helloRef)}>Home</li>
-            <li onClick={() => handleScrollRef(profileRef)}>Profile</li>
+            <li onClick={() => handleScrollRef(profileRef)}>About</li>
             <li onClick={() => handleScrollRef(skillRef)}>Skill</li>
             <li onClick={() => handleScrollRef(projectRef)}>Project</li>
+            <li onClick={() => handleScrollRef(contactRef)}>Contact</li>
             <button className="navBar" onClick={() => toggleModal()}>
               <img
                 src={
@@ -185,14 +184,10 @@ const Header: FC<HeaderProps> = ({
                 </button>
               </div>
               <ModalContent>
-                <button onClick={() => handleScrollRef(helloRef)}>Home</button>
-                <button onClick={() => handleScrollRef(profileRef)}>
-                  Profile
-                </button>
-                <button onClick={() => handleScrollRef(skillRef)}>Skill</button>
-                <button onClick={() => handleScrollRef(projectRef)}>
-                  Project
-                </button>
+                <li onClick={() => handleScrollRef(profileRef)}>About</li>
+                <li onClick={() => handleScrollRef(skillRef)}>Skill</li>
+                <li onClick={() => handleScrollRef(projectRef)}>Project</li>
+                <li onClick={() => handleScrollRef(contactRef)}>Contact</li>
               </ModalContent>
             </Modal>
           </ModalBg>

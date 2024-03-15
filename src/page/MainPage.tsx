@@ -8,6 +8,7 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, toggleTheme } from "../redux/themeSlice";
 import Buttons from "../component/Buttons";
+import Contact from "../component/Contact";
 
 const MainWarp = styled.div`
   width: 100%;
@@ -33,6 +34,7 @@ const MainPage = () => {
   const profileRef = useRef(null);
   const skillRef = useRef(null);
   const projectRef = useRef(null);
+  const contactRef = useRef(null);
 
   const handleScrollRef = (ref: any) => {
     if (ref.current) {
@@ -54,11 +56,13 @@ const MainPage = () => {
             profileRef={profileRef}
             skillRef={skillRef}
             projectRef={projectRef}
+            contactRef={contactRef}
           />
           <Hello ref={helloRef} />
           <Profile ref={profileRef} />
           <Skill ref={skillRef} />
           <Project ref={projectRef} />
+          <Contact ref={contactRef} />
           <Buttons />
         </MainWarp>
       </ThemeProvider>

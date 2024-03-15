@@ -5,7 +5,7 @@ import { ResultItem } from "../../types/Project";
 const ProjectCardWrap = styled.div`
   width: 32%;
   max-height: 350px;
-  border-radius: 2rem;
+  border-radius: 20px 20px 0 0;
   background: #fff;
   border: 1px solid #d9d9d9;
   margin-bottom: 2rem;
@@ -27,6 +27,7 @@ const ProjectCardWrap = styled.div`
 const ProjectInfo = styled.div`
   padding: 1rem;
   font-size: 1rem;
+  background: #d9d9d9;
   h2 {
     display: inline-block;
     min-width: auto;
@@ -34,11 +35,11 @@ const ProjectInfo = styled.div`
     border-radius: 0.5rem;
   }
   .personal-project {
-    background-color: #999;
+    background: #a5ffc9;
   }
 
   .collaborative-project {
-    background-color: #d9d9d9;
+    background: #a5c9ff;
   }
 `;
 
@@ -68,6 +69,11 @@ const ProjectCard: FC<ProjectProps> = ({ result }) => {
           <h2 className={category}>
             {result.properties.Tag.multi_select[0]?.name}
           </h2>
+          {result.properties.Tag.multi_select[1]?.name && (
+            <h2 style={{ background: "#595959", marginLeft: "1rem" }}>
+              {result.properties.Tag.multi_select[1]?.name}
+            </h2>
+          )}
           <br />
           <h2>
             작업기간 : {result.properties.WorkPeriod.rich_text[0].plain_text}

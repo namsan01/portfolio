@@ -50,6 +50,7 @@ const SkillInfo = styled.div`
       border-radius: 50%;
       font-size: 2.5rem;
       cursor: pointer;
+      border: none;
     }
   }
   .skill-info-right {

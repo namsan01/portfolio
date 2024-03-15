@@ -41,18 +41,15 @@ const ProfileItem = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 1.5rem;
     h1 {
       margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-size: 4.5rem;
+      margin-bottom: 1rem;
+      font-size: 4rem;
     }
     h2 {
       font-size: 2rem;
       align-items: center;
-    }
-    .profile-produce {
-      h2 {
-      }
     }
   }
 
@@ -250,12 +247,12 @@ const Profile: FC<ProfileProps> = forwardRef<HTMLDivElement, ProfileProps>(
           <ProfileItem ref={ref}>
             <div className="grid-item item-1">
               <div>
-                <h1>Profile</h1>
+                <h1>목표</h1>
               </div>
               <div>
-                <h2>프론트엔드 개발자 김민수입니다</h2>
-                <h2>꼼꼼히 빈틈을 채워가 꾸준히</h2>
-                <h2>성장하는 개발자가 되겠습니다</h2>
+                <h2>끊임없는 열정으로 새로운 도전을 </h2>
+                <h2>받아들이며 꾸준한 노력으로 끊임없는</h2>
+                <h2>개발자로 성장하겠습니다.</h2>
               </div>
             </div>
             <div className="grid-item item-2">

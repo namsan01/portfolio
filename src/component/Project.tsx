@@ -12,6 +12,7 @@ const ProjectWrap = styled.div`
   width: 100%;
   justify-content: center;
   display: flex;
+  padding-bottom: 10rem;
 `;
 
 const ProjectInfo = styled.div`
@@ -31,7 +32,7 @@ const ProjectInfo = styled.div`
     margin-bottom: 5rem;
   }
 
-  @media (max-width: 1256px) {
+  @media (max-width: 1300px) {
     .project-txt {
       align-self: flex-start;
     }
@@ -57,14 +58,27 @@ const ProjectBt = styled.div`
     width: 8rem;
     height: 5rem;
     font-size: 1.2rem;
+    font-weight: 700;
     background: #d9d9d9;
-    border: 1px solid #000;
+    border: none;
     border-radius: 1rem;
   }
-
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
   @media (max-width: 1256px) {
     margin-left: 1rem;
     margin-right: 2rem;
+  }
+  @media (max-width: 800px) {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+    }
   }
 `;
 
@@ -156,7 +170,8 @@ const Project: FC<ProjectProps> = forwardRef<HTMLDivElement, ProjectProps>(
                   개인 프로젝트
                 </button>
               </div>
-              <h2>총 프로젝트 {filteredResults.length}</h2>
+              <h1>총 프로젝트 {filteredResults.length}개</h1>
+              <h2>* 클릭시 노션으로 이동합니다 *</h2>
             </ProjectBt>
             <ProjectCardInfo>
               {filteredResults.map((result, index) => (
