@@ -6,7 +6,7 @@ import Skill from "../component/Skill";
 import Project from "../component/Project";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "../redux/themeSlice";
+import { RootState, toggleTheme } from "../redux/themeSlice";
 import Buttons from "../component/Buttons";
 
 const MainWarp = styled.div`
@@ -19,7 +19,7 @@ const MainWarp = styled.div`
 
 const MainPage = () => {
   const dispatch = useDispatch();
-  const darkMode = useSelector((state: any) => state.dark);
+  const darkMode = useSelector((state: RootState) => state.dark);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");

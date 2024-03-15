@@ -1,10 +1,11 @@
 import { FC, forwardRef, useState } from "react";
 import styled from "styled-components";
 import { skillList } from "../data/skillList";
-import SkillCard from "./SkillCard";
+import SkillCard from "./Skill/SkillCard";
 
 const SkillWrap = styled.section`
   width: 100%;
+  height: auto;
   justify-content: center;
   display: flex;
   @media (max-width: 1024px) {
@@ -13,6 +14,7 @@ const SkillWrap = styled.section`
   @media (max-width: 800px) {
     justify-content: center;
   }
+  margin-bottom: 10rem;
 `;
 
 const SkillInfo = styled.div`

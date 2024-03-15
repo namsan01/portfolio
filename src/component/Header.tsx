@@ -1,6 +1,7 @@
 import { FC, RefObject, useState } from "react";
 import { useSelector } from "react-redux";
 import styled, { ThemeProvider } from "styled-components";
+import { RootState } from "../redux/themeSlice";
 
 const HeaderWrap = styled.header`
   display: flex;
@@ -47,11 +48,13 @@ const HeaderRight = styled.ul`
   cursor: pointer;
   margin-right: 2rem;
   button.navBar {
+    background: transparent;
     display: none;
     border: none;
     text-align: end;
     img {
       width: 25px;
+      height: 100%;
     }
   }
   @media (max-width: 800px) {
@@ -68,7 +71,6 @@ const HeaderRight = styled.ul`
 
 const ModalBg = styled.div`
   position: fixed;
-
   right: 0;
   width: 100%;
   height: 100vh;
@@ -134,7 +136,7 @@ const Header: FC<HeaderProps> = ({
   projectRef,
   handleScrollRef,
 }) => {
-  const darkMode = useSelector((state: any) => state.dark);
+  const darkMode = useSelector((state: RootState) => state.dark);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -162,7 +164,9 @@ const Header: FC<HeaderProps> = ({
                 src={
                   isOpen
                     ? ""
-                    : process.env.PUBLIC_URL + "/images/bt_menu_black.svg"
+                    : darkMode === "light"
+                      ? process.env.PUBLIC_URL + "/images/bt_menu_black.svg"
+                      : process.env.PUBLIC_URL + "/images/bt_menu.svg"
                 }
                 alt=""
               />

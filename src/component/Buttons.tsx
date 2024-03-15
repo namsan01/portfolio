@@ -2,7 +2,7 @@ import { faArrowUp, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { toggleTheme } from "../redux/themeSlice";
+import { RootState, toggleTheme } from "../redux/themeSlice";
 
 const StyledButtonContainer = styled.div`
   display: flex;
@@ -37,7 +37,7 @@ const StyledButton = styled.div`
 `;
 
 function Buttons() {
-  const darkMode = useSelector((state: any) => state.dark);
+  const darkMode = useSelector((state: RootState) => state.dark);
   const dispatch = useDispatch();
 
   const moveToTop = () => {

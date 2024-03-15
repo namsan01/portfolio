@@ -1,6 +1,7 @@
 import { FC, forwardRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { RootState } from "../redux/themeSlice";
 
 const HelloWrap = styled.section`
   display: flex;
@@ -90,7 +91,7 @@ interface HelloProps {
 const Hello: FC<HelloProps> = forwardRef<HTMLDivElement, HelloProps>(
   (props, ref) => {
     
-    const theme = useSelector((state: any) => state.dark);
+    const theme = useSelector((state: RootState) => state.dark);
 
     return (
       <HelloWrap ref={ref}>

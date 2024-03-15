@@ -9,3 +9,7 @@ export const dark = createSlice({
 });
 
 export const { toggleTheme } = dark.actions;
+
+export interface RootState {
+  dark: string;
+}

@@ -20,9 +20,11 @@ const CardWarp = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background: #fff;
   border: 1px solid #d9d9d9;
   border-radius: 1rem;
   padding: 2rem;
+  color: #000;
   img {
     width: 100px;
     height: 100px;
