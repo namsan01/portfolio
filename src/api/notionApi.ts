@@ -31,7 +31,7 @@ const options = {
 
 export const getData = async (): Promise<ResultItem[]> => {
   const res = await fetch(
-    `https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
+    `https://cors-anywhere.herokuapp.com/https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
     options
   );
 
