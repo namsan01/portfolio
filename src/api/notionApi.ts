@@ -1,7 +1,5 @@
 import { ResultItem } from "../types/Project";
 
-const { Client } = require("@notionhq/client");
-
 const TOKEN = process.env.React_APP_Notion_Key;
 const DATABASE_ID = process.env.React_APP_Notion_DATA;
 
@@ -40,21 +38,4 @@ export const getData = async (): Promise<ResultItem[]> => {
   const result: ResponseData = await res.json();
 
   return result.results;
-};
-
-export const getData2 = async (): Promise<ResultItem[]> => {
-  const notion = new Client({ auth: TOKEN });
-  const response = await notion.databases.query({
-    database_id: DATABASE_ID,
-    sorts: [
-      {
-        property: "title",
-        direction: "ascending",
-      },
-    ],
-  });
-
-  console.log(response);
-
-  return response.results;
 };
