@@ -33,7 +33,7 @@ const options = {
 
 export const getData = async (): Promise<ResultItem[]> => {
   const res = await fetch(
-    `https://vercel-cors-anywhere.vercel.app/api/?url=https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
+    `https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
     options
   );
 
