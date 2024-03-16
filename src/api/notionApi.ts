@@ -39,3 +39,4 @@ export const getData = async (): Promise<ResultItem[]> => {
 
   return result.results;
 };
+

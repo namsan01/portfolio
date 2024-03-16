@@ -1,6 +1,8 @@
-[
-  {
-    "src": "/api/(.*)",
-    "dest": "https://vercel-cors-anywhere.vercel.app/api/?url="
-  }
-]
+{
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://vercel-cors-anywhere.vercel.app/api/?url="
+    }
+  ]
+}
