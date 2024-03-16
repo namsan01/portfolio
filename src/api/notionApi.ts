@@ -20,11 +20,6 @@ const options = {
     "Notion-Version": "2022-06-28",
     "content-type": "application/json",
     Authorization: `Bearer ${TOKEN}`,
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-    "Access-Control-Allow-Headers":
-      "Origin, Content-Type, Accept, Authorization",
-    "Access-Control-Allow-Credentials": true,
   },
   body: JSON.stringify({
     sorts: [
