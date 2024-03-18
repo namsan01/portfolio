@@ -1,7 +1,9 @@
 import { FC } from "react";
+import {
+  ProjectCardWrap,
+  ProjectInfo,
+} from "../../styles/project/projectCardStyle";
 import { ResultItem } from "../../types/Project";
-import { ProjectCardWrap } from "../../styles/project/projectCardStyle";
-import { ProjectInfo } from "../../styles/project/projectStyle";
 
 interface ProjectProps {
   result: ResultItem;
