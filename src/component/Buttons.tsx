@@ -5,7 +5,7 @@ import { RootState, toggleTheme } from "../redux/themeSlice";
 import { ButtonWrap, StyledButton } from "../styles/button/buttonStyle";
 
 function Buttons() {
-  const darkMode = useSelector((state: RootState) => state.dark);
+  const darkMode = useSelector((state: RootState) => state.dark.mode);
   const dispatch = useDispatch();
 
   const moveToTop = () => {

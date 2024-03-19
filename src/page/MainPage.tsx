@@ -20,12 +20,12 @@ const MainWarp = styled.div`
 
 const MainPage = () => {
   const dispatch = useDispatch();
-  const darkMode = useSelector((state: RootState) => state.dark);
+  const darkMode = useSelector((state: RootState) => state.dark.mode);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
 
-    if (savedTheme && savedTheme !== darkMode) {
+    if (savedTheme && savedTheme !== "dark") {
       dispatch(toggleTheme());
     }
   }, [dispatch]);

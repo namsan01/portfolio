@@ -9,7 +9,7 @@ interface HelloProps {
 
 const Hello: FC<HelloProps> = forwardRef<HTMLDivElement, HelloProps>(
   (props, ref) => {
-    const theme = useSelector((state: RootState) => state.dark);
+    const theme = useSelector((state: RootState) => state.dark.mode);
 
     return (
       <HelloWrap ref={ref}>

@@ -28,7 +28,7 @@ const Header: FC<HeaderProps> = ({
   contactRef,
   handleScrollRef,
 }) => {
-  const darkMode = useSelector((state: RootState) => state.dark);
+  const darkMode = useSelector((state: RootState) => state.dark.mode);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -51,7 +51,7 @@ const Header: FC<HeaderProps> = ({
             <li onClick={() => handleScrollRef(skillRef)}>Skill</li>
             <li onClick={() => handleScrollRef(projectRef)}>Project</li>
             <li onClick={() => handleScrollRef(contactRef)}>Contact</li>
-            <button className="navBar" onClick={() => toggleModal()}>
+            <button className="navBar" onClick={toggleModal}>
               <img
                 src={
                   isOpen
