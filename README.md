@@ -13,7 +13,8 @@
 - UI Library: FontAwesome
 - State Management Library : Redux-toolkit
 - Use_language: TypeScript
-
+- Web Infrastructure Security Provider : Cloudflare
+  <br>
   사용하여 제작하였습니다.
 
 2024-03-02
