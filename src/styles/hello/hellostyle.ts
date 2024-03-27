@@ -63,7 +63,7 @@ export const HelloInfo = styled.div`
       padding-left: 1rem;
       h2 {
         font-weight: 900;
-        font-size: 4rem;
+        font-size: 3.5rem;
         word-break: keep-all;
         margin-bottom: 1.25rem;
       }
